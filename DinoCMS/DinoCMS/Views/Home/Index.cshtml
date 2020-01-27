@@ -1,8 +1,22 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using DinoCMS.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@{
     ViewData["Title"] = "Home Page";
 }
 <title>Prehistoric Realism</title>
+
+<link rel="stylesheet" href="~/css/site.css" />
 <div class="text-center">
     <h1 class="display-4">Welcome To Prehistoric Realism Official</h1>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h2>You are signed in!</h2>
+        /// <span>Welcome @User.Claims.;</span>
+    }
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <span>Welcome anonymous! <a class="btn-info" href="/Account/Register">Click here to register!</a></span>
+    }
     <p>Website is a work in progress :D</p>
 </div>
