@@ -18,5 +18,7 @@ namespace DinoCMS.Models
     {
         public const string Member = "Member";
         public const string Admin = "ADMIN";
+
+
     }
 }

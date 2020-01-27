@@ -2,7 +2,7 @@
 
 namespace DinoCMS.Migrations
 {
-    public partial class somedata : Migration
+    public partial class init3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
