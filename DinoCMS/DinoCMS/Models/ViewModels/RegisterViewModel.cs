@@ -10,11 +10,11 @@ namespace DinoCMS.Models.ViewModels
     {
 
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
 
         [Required]
         [Display(Name = "Last Name")]

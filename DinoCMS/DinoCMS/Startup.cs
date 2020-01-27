@@ -47,7 +47,7 @@ namespace DinoCMS
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Admin", policy => policy.RequireRole("ADMIN"));
             });
             services.AddIdentity<ApplicationUser, IdentityRole>()
               .AddEntityFrameworkStores<UserDbContext>()

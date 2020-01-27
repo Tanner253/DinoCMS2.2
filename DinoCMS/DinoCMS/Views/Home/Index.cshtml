@@ -4,19 +4,26 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<title>Prehistoric Realism</title>
+<head>
+    <title>Prehistoric Realism</title>
 
-<link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Home.css" rel="stylesheet" />
+</head>
 <div class="text-center">
     <h1 class="display-4">Welcome To Prehistoric Realism Official</h1>
     @if (SignInManager.IsSignedIn(User))
     {
         <h2>You are signed in!</h2>
-        /// <span>Welcome @User.Claims.;</span>
+        var identity = (System.Security.Claims.ClaimsIdentity)Context.User.Identity;
+        string fullname = identity.Claims.FirstOrDefault(c => c.Type == "FullName").Value;
+        @fullname;
     }
     @if (!SignInManager.IsSignedIn(User))
     {
-        <span>Welcome anonymous! <a class="btn-info" href="/Account/Register">Click here to register!</a></span>
+        <h2>You are not signed in!</h2>
+
+        <a href="/Account/Register">Register</a>
     }
     <p>Website is a work in progress :D</p>
 </div>

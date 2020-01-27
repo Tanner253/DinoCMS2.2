@@ -13,9 +13,15 @@ namespace DinoCMS.Models
         [Required(ErrorMessage = "Please make a valid entry")]
         [Display(Name = "Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Please enter Carnivore/Herbivore/Omnivore")]
+        [Required(ErrorMessage = "Please select Carnivore/Herbivore/Omnivore")]
         [Display(Name = "Diet")]
-        public string Diet { get; set; }
+        public Food Diet { get; set; }
+        public enum Food
+        {
+            Herbivore,
+            Carnivore,
+            Omnivore
+        }
 
         [Required(ErrorMessage = "Please make a valid entry")]
         [Display(Name = "Need to know")]
@@ -29,6 +35,9 @@ namespace DinoCMS.Models
         public string SocialInteraction { get; set; }
 
         public string PackLimits { get; set; }
+
+
+
         public string Image { get; set; }
 
         public string Additionalinfo { get; set; } = "null";

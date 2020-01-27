@@ -31,6 +31,8 @@ namespace DinoCMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                //TODO
+                //CHECK TO SEE IF EMAIL / USERNAME ALREADY EXISTS BEFORE CREATING USER
                 ApplicationUser user = new ApplicationUser
                 {
                     Email = rvm.Email,
@@ -53,8 +55,12 @@ namespace DinoCMS.Controllers
                     Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
 
                     Claim dateOfBirthClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthday.Year, user.Birthday.Month, user.Birthday.Day).ToString("u"), ClaimValueTypes.DateTime);
+
                     Claim PRSTAFFClaim = new Claim("PrStaff", user.PrStaff);
+
                     List<Claim> claims = new List<Claim> { nameClaim, emailClaim, dateOfBirthClaim, PRSTAFFClaim};
+                    await _userManager.AddClaimsAsync(user, claims);
+
 
                     if (rvm.Email.ToLower() == "percivaltanner@gmail.com" ){
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
