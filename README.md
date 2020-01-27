@@ -60,16 +60,16 @@ dotnet run
 
 
 ### Overview of Recent Posts
-![Home](DinoCMS2.2/DinoCMS/DinoCMS/Data/Readme/Home.JPG)
+![Home](/DinoCMS/DinoCMS/Data/Readme/Home.JPG)
 
 ### Creating a Post
-![Post Creation](DinoCMS2.2/DinoCMS/DinoCMS/Data/Readme/Create.JPG)
+![Post Creation](/DinoCMS/DinoCMS/Data/Readme/Create.JPG)
 
 ### Enriching a Post
-![Enriching Post](DinoCMS2.2/DinoCMS/DinoCMS/Data/Readme/DIndex.JPG)
+![Enriching Post](/DinoCMS/DinoCMS/Data/Readme/DIndex.JPG)
 
 ### Viewing Post Details
-![Details of Post](DinoCMS2.2/DinoCMS/DinoCMS/Data/Readme/Details.JPG)
+![Details of Post](/DinoCMS/DinoCMS/Data/Readme/Details.JPG)
 
 ---------------------------
 
