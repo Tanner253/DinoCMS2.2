@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DinoCMS.Data;
 using DinoCMS.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DinoCMS.Controllers
 {
+
+  
     public class DinosaursController : Controller
     {
         private readonly DinoDbContext _context;
@@ -42,7 +45,7 @@ namespace DinoCMS.Controllers
 
             return View(dinosaur);
         }
-
+        [Authorize(Policy = "ADMIN")]
         // GET: Dinosaurs/Create
         public IActionResult Create()
         {
@@ -51,7 +54,8 @@ namespace DinoCMS.Controllers
 
         // POST: Dinosaurs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598
+        [Authorize(Policy = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Diet,NeedToKnow,Behavior,SocialInteraction,PackLimits,Image,Additionalinfo")] Dinosaur dinosaur)
@@ -64,7 +68,7 @@ namespace DinoCMS.Controllers
             }
             return View(dinosaur);
         }
-
+        [Authorize(Policy = "ADMIN")]
         // GET: Dinosaurs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,6 +88,7 @@ namespace DinoCMS.Controllers
         // POST: Dinosaurs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Policy = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Diet,NeedToKnow,Behavior,SocialInteraction,PackLimits,Image,Additionalinfo")] Dinosaur dinosaur)
@@ -115,7 +120,7 @@ namespace DinoCMS.Controllers
             }
             return View(dinosaur);
         }
-
+        [Authorize(Policy = "ADMIN")]
         // GET: Dinosaurs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -133,7 +138,7 @@ namespace DinoCMS.Controllers
 
             return View(dinosaur);
         }
-
+        [Authorize(Policy = "ADMIN")]
         // POST: Dinosaurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
