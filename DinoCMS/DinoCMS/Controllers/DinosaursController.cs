@@ -16,17 +16,45 @@ namespace DinoCMS.Controllers
     public class DinosaursController : Controller
     {
         private readonly DinoDbContext _context;
+        
 
         public DinosaursController(DinoDbContext context)
         {
             _context = context;
         }
 
-        // GET: Dinosaurs
-        public async Task<IActionResult> Index()
+        public IActionResult Index(Dinosaur.Food type)
         {
-            return View(await _context.Dinosaur.ToListAsync());
+            ViewData["HerbiSort"] = type == Dinosaur.Food.Herbivore ? "Herbi" : "Herbivore";
+            ViewData["CarniSort"] = type == Dinosaur.Food.Carnivore ? "Carni" : "Carnivore";
+            ViewData["OmniSort"] = type == Dinosaur.Food.Omnivore ? "Omni" : "Omnivore";
+            IOrderedQueryable<Dinosaur> dino;
+            switch (type)
+            {
+                case Dinosaur.Food.Herbivore:
+                    dino = _context.Dinosaur.OrderByDescending(c => c.Diet == type);
+               
+                    break;
+                case Dinosaur.Food.Carnivore:
+                     dino = _context.Dinosaur.OrderByDescending(c => c.Diet == type);
+
+                    break;
+                case Dinosaur.Food.Omnivore:
+                     dino = _context.Dinosaur.OrderByDescending(c => c.Diet == type);
+
+                    break;
+                default:
+                    dino = _context.Dinosaur.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(dino);
         }
+        // GET: Dinosaurs
+        //public async Task<IActionResult> Index()
+        //{
+
+        //    return View(await _context.Dinosaur.ToListAsync());
+        //}
 
         // GET: Dinosaurs/Details/5
         public async Task<IActionResult> Details(int? id)

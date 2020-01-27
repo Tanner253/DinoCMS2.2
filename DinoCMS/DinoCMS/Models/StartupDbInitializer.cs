@@ -37,14 +37,14 @@ namespace DinoCMS.Models
                         ("user1").Result == null)
             {
                 ApplicationUser user = new ApplicationUser();
-                user.UserName = "oSKNYo";
-                user.Email = "Percivaltanner@gmail.com";
-                user.FirstName = "Tanner";
-                user.LastName = "Percival";
+                user.UserName = "ADMIN";
+                user.Email = "ADMIN@gmail.com";
+                user.FirstName = "PrehistoricRealism";
+                user.LastName = "STAFF";
                 user.Birthday = new DateTime(2000, 3, 8);
 
                 IdentityResult result = userManager.CreateAsync
-                (user, "Percival1010$").Result;
+                (user, "PrStaff10$").Result;
 
                 if (result.Succeeded)
                 {
