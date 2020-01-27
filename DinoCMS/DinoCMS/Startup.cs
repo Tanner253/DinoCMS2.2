@@ -13,7 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using DinoCMS.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace DinoCMS
 {
@@ -41,20 +42,21 @@ namespace DinoCMS
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
             });
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+              .AddEntityFrameworkStores<UserDbContext>()
+              .AddDefaultTokenProviders();
 
             services.AddDbContext<DinoDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
-        //    services.AddIdentity<ApplicationUser, ApplicationRole>()
-        //.AddEntityFrameworkStores<ApplicationDbContext>()
-        //.AddDefaultTokenProviders();
-
-            services.AddDbContext<DinoDbContext>(options =>
+            services.AddDbContext<UserDbContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault")));
 
             services.AddScoped<IDinoManager, DinoService>();
