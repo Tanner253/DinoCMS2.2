@@ -20,7 +20,11 @@ namespace DinoCMS.Controllers
             _signinManager = signinmanager;
             _userManager = userManager;
         }
-
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult>Register(RegisterViewModel rvm)
