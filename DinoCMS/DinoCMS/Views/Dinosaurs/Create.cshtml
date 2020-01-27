@@ -19,22 +19,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Diet" class="control-label"></label>
-                <input asp-for="Diet" class="form-control" />
+                <select asp-for="Diet" asp-items="@Html.GetEnumSelectList<DinoCMS.Models.Dinosaur.Food>()" class="form-control"></select>
                 <span asp-validation-for="Diet" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NeedToKnow" class="control-label"></label>
-                <textarea asp-for="NeedToKnow" class="form-control" ></textarea>
+                <textarea asp-for="NeedToKnow" class="form-control"></textarea>
                 <span asp-validation-for="NeedToKnow" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Behavior" class="control-label"></label>
-                <textarea asp-for="Behavior" class="form-control" ></textarea>
+                <textarea asp-for="Behavior" class="form-control"></textarea>
                 <span asp-validation-for="Behavior" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SocialInteraction" class="control-label"></label>
-                <textarea asp-for="SocialInteraction" class="form-control" ></textarea>
+                <textarea asp-for="SocialInteraction" class="form-control"></textarea>
                 <span asp-validation-for="SocialInteraction" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Additionalinfo" class="control-label"></label>
-                <textarea asp-for="Additionalinfo" class="form-control" ></textarea>
+                <textarea asp-for="Additionalinfo" class="form-control"></textarea>
                 <span asp-validation-for="Additionalinfo" class="text-danger"></span>
             </div>
             <div class="form-group">

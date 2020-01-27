@@ -48,7 +48,7 @@ namespace DinoCMS.Models
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, "ADMIN").Wait();
+                    userManager.AddToRoleAsync(user, "Admin").Wait();
                 }
             }
 
