@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DinoCMS.Migrations.UserDb
+namespace DinoCMS.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20200127025319_initial")]
-    partial class initial
+    [Migration("20200127033421_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

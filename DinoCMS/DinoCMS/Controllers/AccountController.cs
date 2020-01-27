@@ -23,7 +23,7 @@ namespace DinoCMS.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel rvm)
+        public async Task<IActionResult>Register(RegisterViewModel rvm)
         {
             if (ModelState.IsValid)
             {

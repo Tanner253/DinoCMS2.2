@@ -22,6 +22,7 @@ namespace DinoCMS
     {
         public Startup(IConfiguration configuration)
         {
+         
             var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
             Configuration = builder.Build();
@@ -65,9 +66,8 @@ namespace DinoCMS
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, IServiceProvider service)
         {
-            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,6 +77,9 @@ namespace DinoCMS
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseAuthentication();
+            StartupDbInitializer.SeedData(service, userManager);
+          
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

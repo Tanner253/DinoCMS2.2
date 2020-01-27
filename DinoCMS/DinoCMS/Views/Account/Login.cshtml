@@ -1,0 +1,27 @@
+﻿@model DinoCMS.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_layout";
+}
+<head>
+    <title>Login</title>
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<h1>Login</h1>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="FormElements">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div><div class="FormElements">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit">LOGIN!</button>
+</form>
