@@ -60,16 +60,16 @@ dotnet run
 
 
 ### Overview of Recent Posts
-![Home](/Scaffold-CMS/Data/Readme/Home.JPG)
+![Home](/DinoCMS/Data/Readme/Home.JPG)
 
 ### Creating a Post
-![Post Creation](/Scaffold-CMS/Data/Readme/Create.JPG)
+![Post Creation](/DinoCMS/Data/Readme/Create.JPG)
 
 ### Enriching a Post
-![Enriching Post](/Scaffold-CMS/Data/Readme/DIndex.JPG)
+![Enriching Post](/DinoCMS/Data/Readme/DIndex.JPG)
 
 ### Viewing Post Details
-![Details of Post](/Scaffold-CMS/Data/Readme/Details.JPG)
+![Details of Post](/DinoCMS/Data/Readme/Details.JPG)
 
 ---------------------------
 
