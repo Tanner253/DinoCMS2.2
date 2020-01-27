@@ -27,10 +27,14 @@ namespace DinoCMS.Models
                 AddRoles(dbContext);
             }
         }
+        /// <summary>
+        /// seeds a user 
+        /// </summary>
+        /// <param name="userManager"></param>
         public static void SeedUsers(UserManager<ApplicationUser> userManager)
         {
             if (userManager.FindByNameAsync
-("user1").Result == null)
+                        ("user1").Result == null)
             {
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = "oSKNYo";
@@ -68,7 +72,10 @@ namespace DinoCMS.Models
         //        }
         //    }
         }
-
+        /// <summary>
+        /// seeds roles
+        /// </summary>
+        /// <param name="context"></param>
         private static void AddRoles(UserDbContext context)
         {
             if (context.Roles.Any())
