@@ -95,8 +95,8 @@ namespace DinoCMS.Controllers
                     var signedIn = await _userManager.FindByEmailAsync(lvm.Email);
                     if(await _userManager.IsInRoleAsync(signedIn, ApplicationRoles.Admin))
                     {
-                       // return LocalRedirect("~/Admin/Admin");
-                       return RedirectToAction("Index", "Dinosaurs");
+                       return LocalRedirect("~/Admin/List");
+                       //return RedirectToAction("Index", "Dinosaurs");
                     }
                     return RedirectToAction("Index", "Home");
                 }

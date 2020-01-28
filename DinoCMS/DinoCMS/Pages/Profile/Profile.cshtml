@@ -1,0 +1,47 @@
+﻿@page "{id}"
+@model DinoCMS.Views.Pages.ProfileModel
+@using Microsoft.AspNetCore.Identity
+@using DinoCMS.Models
+
+@inject UserManager<ApplicationUser> userManager
+@{
+       Layout = "_Layout";
+}
+    <head>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/Home.css" />
+
+        <title>Edit Profile</title>
+    </head>
+
+<h1>
+    @User.Claims.Last(c => c.Type == "FullName").Value's Profile
+</h1>
+
+@{
+    var email = User.Identity.Name;
+    var user = await userManager.FindByEmailAsync(email);
+}
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label " asp-for=@User.Claims.Last(c => c.Type == "FullName").Value>First Name:</label>
+
+    </div>
+
+    <div class="form-group">
+        <input class=" form-control col-md-8" asp-for=@User.Identity.Name value="@user.FirstName" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+<p>
+    Last Name: @user.LastName
+</p>
+<p>
+    Email: @user.Email
+</p>
+<a class="btn-primary" asp-page="Profile/ResetPass">Reset Password </a>

@@ -23,7 +23,7 @@ namespace DinoCMS.Models
                
                
                 dbContext.Database.EnsureCreated();
-                SeedUsers(userManager);
+                //SeedUsers(userManager);
                 AddRoles(dbContext);
             }
         }
@@ -48,7 +48,7 @@ namespace DinoCMS.Models
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, "Admin").Wait();
+                    userManager.AddToRoleAsync(user, "ADMIN").Wait();
                 }
             }
 
