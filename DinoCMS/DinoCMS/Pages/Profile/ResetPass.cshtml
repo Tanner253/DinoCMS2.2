@@ -1,0 +1,21 @@
+﻿@page "{id}"
+@model DinoCMS.ResetPass;
+@{
+    ViewData["Title"] = "ResetPass";
+}
+<link rel="stylesheet" href="~/css/site.css" />
+<link href="~/css/Home.css" rel="stylesheet" />
+<h1>ResetPass</h1>
+
+<form method="post">
+    <p>
+        Current Password: <input asp-for="currentPassword" type="password" />
+    </p>
+    <p>
+        New Password: <input asp-for="password" type="password" />
+    </p>
+    <p>
+        Confirm New Password: <input asp-for="confirmPassword" type="password" />
+    </p>
+    <button type="submit">Save</button>
+</form>

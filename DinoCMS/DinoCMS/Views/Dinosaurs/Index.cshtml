@@ -39,17 +39,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Image)
                     </th>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <th>
-                            <a class="btn btn-primary" asp-action="Create">Create New</a>
-                        </th>
-                    }
-                    @if (!SignInManager.IsSignedIn(User))
-                    {
-                        <th>  </th>
-                    }
-
+                        <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -70,15 +60,9 @@
                             <img src="@item.Image" alt="Alternate Text" />
                         </td>
                         <td>
-                            @if (SignInManager.IsSignedIn(User))
-                            {
-                                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
-                            }
+                    
                             <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Details</a>
-                            @if (SignInManager.IsSignedIn(User))
-                            {
-                                <a class="btn btn-info" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                            }
+                    
                         </td>
                         <td>
                         </td>

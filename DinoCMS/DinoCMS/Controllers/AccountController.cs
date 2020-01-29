@@ -56,13 +56,14 @@ namespace DinoCMS.Controllers
 
                     Claim dateOfBirthClaim = new Claim(ClaimTypes.DateOfBirth, new DateTime(user.Birthday.Year, user.Birthday.Month, user.Birthday.Day).ToString("u"), ClaimValueTypes.DateTime);
 
-                    Claim PRSTAFFClaim = new Claim("PrStaff", user.PrStaff);
+                    
 
-                    List<Claim> claims = new List<Claim> { nameClaim, emailClaim, dateOfBirthClaim, PRSTAFFClaim};
+                    List<Claim> claims = new List<Claim> { nameClaim, emailClaim, dateOfBirthClaim};
                     await _userManager.AddClaimsAsync(user, claims);
 
 
-                    if (rvm.Email.ToLower() == "percivaltanner@gmail.com" ){
+                    if (rvm.Email.ToLower() == "percivaltanner@gmail.com" || rvm.Email.ToLower() == "staff@gmail.com" || rvm.Email.ToLower() == "staff3@gmail.com" || rvm.Email.ToLower() == "staff2@gmail.com" || rvm.Email.ToLower() == "staff4@gmail.com")
+                    {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                     }else
                     {
@@ -95,8 +96,8 @@ namespace DinoCMS.Controllers
                     var signedIn = await _userManager.FindByEmailAsync(lvm.Email);
                     if(await _userManager.IsInRoleAsync(signedIn, ApplicationRoles.Admin))
                     {
-                       // return LocalRedirect("~/Admin/Admin");
-                       return RedirectToAction("Index", "Dinosaurs");
+                      // return RedirectToAction("List", "Admin");
+                       return RedirectToAction("Index", "Home");
                     }
                     return RedirectToAction("Index", "Home");
                 }

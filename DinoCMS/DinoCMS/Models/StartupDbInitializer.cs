@@ -23,8 +23,24 @@ namespace DinoCMS.Models
                
                
                 dbContext.Database.EnsureCreated();
-                SeedUsers(userManager);
                 AddRoles(dbContext);
+                //SeedUsers(userManager);
+            }
+        }
+        /// <summary>
+        /// seeds roles
+        /// </summary>
+        /// <param name="context"></param>
+        private static void AddRoles(UserDbContext context)
+        {
+            if (context.Roles.Any())
+            {
+                return;
+            }
+            foreach (var role in Roles)
+            {
+                context.Roles.Add(role);
+                context.SaveChanges();
             }
         }
         /// <summary>
@@ -71,22 +87,6 @@ namespace DinoCMS.Models
         //                                "Administrator").Wait();
         //        }
         //    }
-        }
-        /// <summary>
-        /// seeds roles
-        /// </summary>
-        /// <param name="context"></param>
-        private static void AddRoles(UserDbContext context)
-        {
-            if (context.Roles.Any())
-            {
-                return;
-            }
-            foreach (var role in Roles)
-            {
-                context.Roles.Add(role);
-                context.SaveChanges();
-            }
         }
     }
 }

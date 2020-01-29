@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DinoCMS.Models.Interfaces
 {
-    interface IDinoManager
+    public interface IDinoManager
     {
 
         Task CreateDinosaur(Dinosaur dinosaur);

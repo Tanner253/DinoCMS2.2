@@ -49,16 +49,21 @@ namespace DinoCMS
             {
                 options.AddPolicy("Admin", policy => policy.RequireRole("ADMIN"));
             });
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-              .AddEntityFrameworkStores<UserDbContext>()
-              .AddDefaultTokenProviders();
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<UserDbContext>();
+
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //  .AddEntityFrameworkStores<UserDbContext>()
+            //  .AddDefaultTokenProviders();
 
             services.AddDbContext<DinoDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
 
 
             services.AddDbContext<UserDbContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault")));
+           options.UseSqlServer(Configuration.GetConnectionString("UserDataConnection")));
 
             services.AddScoped<IDinoManager, DinoService>();
 
@@ -68,17 +73,17 @@ namespace DinoCMS
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, IServiceProvider service)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-            StartupDbInitializer.SeedData(service, userManager);
+           StartupDbInitializer.SeedData(service, userManager);
           
             app.UseMvc(routes =>
             {
