@@ -14,9 +14,10 @@ namespace DinoCMS.Models
         public string PrStaff { get; set; } = "false";
     }
 
-    public static class ApplicationRoles
+    public static class ApplicationRoles 
     {
         public const string Member = "Member";
+
         public const string Admin = "ADMIN";
 
 

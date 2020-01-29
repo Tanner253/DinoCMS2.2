@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DinoCMS.Migrations
+namespace DinoCMS.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20200127033421_init2")]
-    partial class init2
+    [Migration("20200129032728_scaffold4")]
+    partial class scaffold4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -146,9 +146,11 @@ namespace DinoCMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ProviderKey");
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -179,9 +181,11 @@ namespace DinoCMS.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value");
 

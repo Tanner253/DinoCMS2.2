@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DinoCMS.Migrations
+namespace DinoCMS.Migrations.UserDb
 {
-    public partial class init3 : Migration
+    public partial class scaffoldw2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

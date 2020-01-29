@@ -3,14 +3,16 @@ using DinoCMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DinoCMS.Migrations.DinoDb
+namespace DinoCMS.Migrations
 {
     [DbContext(typeof(DinoDbContext))]
-    partial class DinoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200129024123_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
