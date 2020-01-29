@@ -4,8 +4,7 @@
 # Project Dino CMS
 ---------------------------------
 ## We are deployed on Azure!
-(Coming soon)
-[project url here]
+https://prehistoricrealism.azurewebsites.net/
 
 
 ---------------------------------
