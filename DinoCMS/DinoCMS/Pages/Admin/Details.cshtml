@@ -53,7 +53,7 @@
             @Html.DisplayNameFor(model => model.Dinosaur.Image)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dinosaur.Image)
+            <img src="@Model.Dinosaur.Image" alt="Alternate Text" />
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Dinosaur.Additionalinfo)

@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
  
 }
 <link rel="stylesheet" href="~/css/site.css" />
@@ -64,7 +65,7 @@
                             @Html.DisplayFor(modelItem => item.PackLimits)
                         </td>
                         <td>
-                            <img src="@item.Image" alt="Alternate Text" />
+                            <img class="imgdino"src="@item.Image" alt="Alternate Text" />
                         </td>
                         <td>
 
