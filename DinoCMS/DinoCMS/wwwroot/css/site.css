@@ -19,7 +19,12 @@
         width: inherit;
     }
 
-    img {
+    img{
+        align-content:center;
+        width: 960px;
+    }
+
+    .imgdino {
         width: 300px;
     }
     /* Provide sufficient contrast against white background */
