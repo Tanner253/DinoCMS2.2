@@ -7,11 +7,8 @@
 }
 <link rel="stylesheet" href="~/css/site.css" />
 <link href="~/css/Home.css" rel="stylesheet" />
-<h1>List</h1>
 
-<p>
-    <a class="btn-primary" asp-page="./CreateDino">Create New</a>
-</p>
+
 <div class="text-center">
     <h1>All Dinosaurs</h1>
     <div class="container">
@@ -28,6 +25,8 @@
                         @Html.DisplayNameFor(model => model.Dinosaur[0].Image)
                     </th>
                     <th></th>
+                    <th><a class="btn-primary" asp-page="./CreateDino">Create New</a></th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -45,9 +44,10 @@
                             <img src="@item.Image" alt="" />
                  
                         </td>
+                        <td></td>
                         <td>
-                            <a class="btn-primary" asp-page="./ProductEdit" asp-route-id="@item.ID">Edit</a> |
-                            <a class="btn-primary" asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                            <a class="btn-primary" asp-page="./ProductEdit" asp-route-id="@item.ID">Edit</a> 
+                            <a class="btn-primary" asp-page="./Details" asp-route-id="@item.ID">Details</a> 
                             <a class="btn-primary" asp-page="./DeleteDino" asp-route-id="@item.ID">Delete</a>
                         </td>
                     </tr>
