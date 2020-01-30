@@ -23,6 +23,13 @@
 <div class="text-center">
     <h1>All Dinosaurs</h1>
     <div class="container">
+        @using (Html.BeginForm())
+        {
+            <p>
+                Find by name: @Html.TextBox("SearchString")
+                <input type="submit" value="Search" />
+            </p>
+        }
         <table class="table">
             <thead>
                 <tr>
@@ -39,7 +46,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Image)
                     </th>
-                        <th></th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -60,9 +67,9 @@
                             <img src="@item.Image" alt="Alternate Text" />
                         </td>
                         <td>
-                    
+
                             <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Details</a>
-                    
+
                         </td>
                         <td>
                         </td>
