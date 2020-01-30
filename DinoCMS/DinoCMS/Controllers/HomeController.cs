@@ -10,11 +10,18 @@ namespace DinoCMS.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// serves home page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
-
+        /// <summary>
+        /// serves privacy page
+        /// </summary>
+        /// <returns>view</returns>
         public IActionResult Privacy()
         {
             return View();

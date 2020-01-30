@@ -12,7 +12,9 @@ using Microsoft.AspNetCore.Authorization;
 namespace DinoCMS.Controllers
 {
 
-
+    /// <summary>
+    /// inject dependencies
+    /// </summary>
     public class DinosaursController : Controller
     {
         private readonly DinoDbContext _context;
@@ -22,7 +24,12 @@ namespace DinoCMS.Controllers
         {
             _context = context;
         }
- 
+        /// <summary>
+        /// serves index page with sorted data
+        /// </summary>
+        /// <param name="type">Diet type for sorting</param>
+        /// <param name="searchString">Search string for search</param>
+        /// <returns></returns>
         public ViewResult Index(Dinosaur.Food type, string searchString)
         {
 
@@ -73,6 +80,11 @@ namespace DinoCMS.Controllers
     //}
 
     // GET: Dinosaurs/Details/5
+    /// <summary>
+    /// gets dinosaur by id and returns all of the data corrisponding to that obj
+    /// </summary>
+    /// <param name="id">object in question</param>
+    /// <returns>data of object</returns>
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
@@ -91,6 +103,7 @@ namespace DinoCMS.Controllers
     }
     [Authorize(Policy = "ADMIN")]
     // GET: Dinosaurs/Create
+    
     public IActionResult Create()
     {
         return View();
@@ -164,6 +177,11 @@ namespace DinoCMS.Controllers
         }
         return View(dinosaur);
     }
+        /// <summary>
+        /// Retrieves info abot obj
+        /// </summary>
+        /// <param name="id">obj in question</param>
+        /// <returns>the object</returns>
     [Authorize(Policy = "ADMIN")]
     // GET: Dinosaurs/Delete/5
     public async Task<IActionResult> Delete(int? id)
@@ -182,6 +200,11 @@ namespace DinoCMS.Controllers
 
         return View(dinosaur);
     }
+        /// <summary>
+        /// deletes the object after confirmation of deletion
+        /// </summary>
+        /// <param name="id">obj being deleted</param>
+        /// <returns>to list after deletion</returns>
     [Authorize(Policy = "ADMIN")]
     // POST: Dinosaurs/Delete/5
     [HttpPost, ActionName("Delete")]
@@ -193,7 +216,11 @@ namespace DinoCMS.Controllers
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-
+        /// <summary>
+        /// is called before deletion to make sure that the obj being deleted even exists.
+        /// </summary>
+        /// <param name="id">obj being checked</param>
+        /// <returns>grabs existant dinosaur, if none exist then... ? </returns>
     private bool DinosaurExists(int id)
     {
         return _context.Dinosaur.Any(e => e.ID == id);
