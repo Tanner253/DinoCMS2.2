@@ -9,7 +9,8 @@
  
 }
 <link rel="stylesheet" href="~/css/site.css" />
-<link href="~/css/Home.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/mobile.css" />
+@* <link href="~/css/Home.css" rel="stylesheet" /> *@
 
 @*<p>
         @if (SignInManager.IsSignedIn(User))
@@ -31,8 +32,24 @@
                 <input type="submit" value="Search" />
             </p>
         }
-        <table class="table">
-            <thead>
+        <div class="table">
+            @* <div class="table-head">
+                <div class="table-row">
+                    <div>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>
+                    <div>
+                        @Html.DisplayNameFor(model => model.Diet)
+                    </div>
+                    <div>
+                        @Html.DisplayNameFor(model => model.PackLimits)
+                    </div>
+                    <div>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </div>
+                </div>
+            </div> *@
+            @* <thead>
                 <tr>
 
                     <th>
@@ -50,11 +67,27 @@
                     <th></th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+            </thead> *@
+            @* <tbody> *@
+            <div class="table-body">
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <div class="table-row">
+                        <div class="table-data">
+                            <span style="text-emphasis: bold;">Name:</span> @Html.DisplayFor(modelItem => item.Name)
+                        </div>
+                        <div class="table-data">
+                            <span>Diet:</span> @Html.DisplayFor(modelItem => item.Diet)
+                        </div>
+                        <div class="table-data">
+                            <img class="imgdino"src="@item.Image" alt="Alternate Text" />
+                        </div>
+                        <div class="table-data">
+
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        </div>
+                    </div>
+                    @* <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
@@ -74,9 +107,9 @@
                         </td>
                         <td>
                         </td>
-                    </tr>
+                    </tr> *@
                 }
-            </tbody>
-        </table>
+            </div>
+        </div>
     </div>
   </div>

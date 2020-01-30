@@ -22,11 +22,15 @@ namespace DinoCMS
     {
         public Startup(IConfiguration configuration)
         {
-         
-            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
-            builder.AddUserSecrets<Startup>();
-            Configuration = builder.Build();
-            //Configuration = configuration;
+            // IConfigurationRoot Configuration = new ConfigurationBuilder()
+            //    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+
+            // var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            // builder.AddUserSecrets<Startup>();
+            // Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
