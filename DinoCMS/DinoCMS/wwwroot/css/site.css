@@ -1,4 +1,4 @@
-﻿@media (min-width: 960px) {
+﻿@media (min-width: 768px) {
 
     input {
         width: auto;
@@ -10,9 +10,6 @@
         text-align: center;
         word-break: break-all;
     }
-    /*.navbar {
-    background: linear-gradient(to right, #535353, #5c5c5c, #535353);
-}*/
 
     .navbar {
         background-image: linear-gradient(-90deg, black, maroon, black);
@@ -21,16 +18,17 @@
 
     img{
         align-content:center;
-        width: 960px;
+        width: 100%;
     }
 
-    .imgdino {
+    /* .imgdino {
         width: 300px;
-    }
+    } */
     /* Provide sufficient contrast against white background */
     a {
         color: #0366d6;
         padding: 10px;
+        margin: 1rem;
     }
 
     .btn-primary {
@@ -47,15 +45,6 @@
 
     /* Sticky footer styles
 -------------------------------------------------- */
-    html {
-        font-size: 14px;
-    }
-
-    @media (min-width: 768px) {
-        html {
-            font-size: 16px;
-        }
-    }
 
     .border-top {
         border-top: 1px solid #e5e5e5;
@@ -98,17 +87,54 @@
         line-height: 60px; /* Vertically center the text there */
     }
 
-    .table {
+
+/* TABLE SYLES */
+    .table{
+        margin: 0px auto;
+        width: 100%;
+    }
+    .table span{
+        font-weight: bold;
+    }
+    .table .table-data{
+        font-size: 1.5rem;
+        min-width: 100%;
+    }
+    .table .table-data a{
+        margin: 0.5rem;
+    }
+    .table .table-row{        
+        box-shadow: 3px 3px 5px 6px #ccc; 
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 1.25rem auto;
+    }
+    .table img{
+        max-width: 100%;
+    }
+
+    /* ADMIN PAGE TABLE STYLES */
+
+    /* .table {
         border: 2px 2px solid black;
         border-style: double;
         border-radius: 15px;
         background: rgba(0, 0, 0, .05);
-    }
+    } */
 
     thead {
         border-radius: 15px;
         background: black;
         color: white;
+    }
+
+    td a{
+        color: #0366d6;
+        padding: 10px;
+        margin-top: 1rem;
+    }
+    td div{
+        margin: 1rem;
     }
 
     tbody tr {
