@@ -35,5 +35,14 @@ namespace UnitTests
 
             Assert.Equal("test", result);
         }
+        [Fact]
+        public void DinosaurPropPackLimit()
+        {
+            Dinosaur dino = new Dinosaur();
+            dino.PackLimits = "N/A";
+            var result = dino.PackLimits;
+
+            Assert.Equal("N/A", result);
+        }
     }
 }
