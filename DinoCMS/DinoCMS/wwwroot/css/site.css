@@ -73,6 +73,8 @@
     body {
         margin: auto;
         /*max-width: 960px;*/
+        background: #2d2d2d;
+        color: white;
     }
 
     footer {
@@ -99,6 +101,7 @@
     .table .table-data{
         font-size: 1.5rem;
         min-width: 100%;
+        color: white;
     }
     .table .table-data a{
         margin: 0.5rem;
@@ -127,9 +130,15 @@
         background: black;
         color: white;
     }
+   table td{
+       color: white;
+   }
+   #crudFix{
+       line-height: 3;
+   }
 
     td a{
-        color: #0366d6;
+        /*color: #0366d6;*/
         padding: 10px;
         margin-top: 1rem;
     }
@@ -141,5 +150,8 @@
         border: 2px 2px solid black;
         border-style: double;
         border-radius: 15px;
+    }
+    #jumbotronID{
+        color: black;
     }
 }
