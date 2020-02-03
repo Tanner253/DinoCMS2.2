@@ -15,7 +15,8 @@ namespace DinoCMS.Data
 
         }
         public DbSet<Dinosaur> Dinosaur { get; set; }
-
+        public DbSet<Blog> Blog { get; set; }
+        public DbSet<Post> Post { get; set; }
     }
 
 
