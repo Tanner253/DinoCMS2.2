@@ -33,11 +33,11 @@ namespace DinoCMS.Models
         [Required(ErrorMessage = "Please make a valid entry")]
         [Display(Name = "Social Interaction")]
         public string SocialInteraction { get; set; }
-
+        [Required(ErrorMessage = "Please make a valid entry")]
         public string PackLimits { get; set; }
 
 
-
+        [Required(ErrorMessage = "Please make a valid entry")]
         public string Image { get; set; }
 
         public string Additionalinfo { get; set; } = "null";

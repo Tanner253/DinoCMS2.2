@@ -27,10 +27,10 @@ namespace DinoCMS
             //    .AddJsonFile("appsettings.json")
             //    .Build();
 
-            // var builder = new ConfigurationBuilder().AddEnvironmentVariables();
-            // builder.AddUserSecrets<Startup>();
-            // Configuration = builder.Build();
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
+            //Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }

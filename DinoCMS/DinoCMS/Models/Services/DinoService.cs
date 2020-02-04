@@ -39,11 +39,6 @@ namespace DinoCMS.Models.Services
                 await _context.SaveChangesAsync();
             }
 
-            public bool DinosaurExists(int id)
-            {
-                return _context.Dinosaur.Any(m => m.ID == id);
-            }
-
             public async Task<Dinosaur> GetDinosaur(int id)
             {
                 var dinosaur = await _context.Dinosaur.FirstOrDefaultAsync(m => m.ID == id);
@@ -62,5 +57,10 @@ namespace DinoCMS.Models.Services
                 await _context.SaveChangesAsync();
             }
         
+            public bool DinosaurExists(int id)
+            {
+                return _context.Dinosaur.Any(m => m.ID == id);
+            }
+
     }
 }
