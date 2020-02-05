@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DinoCMS.Controllers
 {
-    public class BlogController : Controller
+    public class temprename : Controller
     {
         private DinoDbContext _context;
 
-        public BlogController(DinoDbContext context)
+        public temprename(DinoDbContext context)
         {
             _context = context;
         }
@@ -63,7 +63,7 @@ namespace DinoCMS.Controllers
         }
 
         // GET: Blog/Edit/5
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
