@@ -1,44 +1,92 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    @using Microsoft.AspNetCore.Identity
+    @using DinoCMS.Models
+    @inject SignInManager<ApplicationUser> signInManager
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prehistoric Realism</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Signika&display=swap" rel="stylesheet">
     @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/mobile.css" />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
             <div class="container">
+                <a class="navbar-brand" href="https://www.paypal.me/prehistoricwest">Donate</a>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" asp-area="" asp-controller="Dinosaurs" asp-action="Index">Available Dinosaurs</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                        </li>
-                        @*<li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Dinosaurs" asp-action="Details/?">Dinosaur Details</a>
-        </li>*@
-                    </ul>
-                </div>
+                @* <button type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> *@
+
+                @if (!User.IsInRole("ADMIN"))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Dinosaurs" asp-action="Index">Available Dinosaurs</a>
+                    @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> *@
+                }
+                @if (!signInManager.IsSignedIn(User))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                    @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> *@
+                    <a class="navbar-brand" href="https://discord.gg/dvbRz5u">Discord Server</a>
+                    @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> *@
+                }
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                    @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> *@
+
+                    <a class="navbar-brand" href="~/Profile/Profile/@User.Identity.Name">Profile</a>
+                    @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> *@
+
+                    @if (!User.IsInRole("ADMIN"))
+                    {
+
+                        <a class="navbar-brand" href="https://discord.gg/dvbRz5u">Discord Server</a>
+                        @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button> *@
+                    }
+
+                    @if (User.IsInRole("ADMIN"))
+                    {
+                        <a class="navbar-brand" href="~/Admin/List">Admin Panel</a>
+                        @* <button class="" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button> *@
+
+                    }
+
+
+
+                }
+
             </div>
         </nav>
     </header>
@@ -48,10 +96,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Dino_CMS - <a asp-area="" asp-controller="Home" asp-action="#">Privacy</a>
-        </div>
+    <footer class="footer text-muted">
+        @*<div class="container">
+                &copy; 2020 - Dino_CMS - <a asp-area="" asp-controller="Home" asp-action="#">Privacy</a>
+            </div>*@
     </footer>
 
     @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -60,6 +108,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script data-ad-client="ca-pub-6477083454892612" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

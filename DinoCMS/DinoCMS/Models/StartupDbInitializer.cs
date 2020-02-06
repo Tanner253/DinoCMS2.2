@@ -23,8 +23,24 @@ namespace DinoCMS.Models
                
                
                 dbContext.Database.EnsureCreated();
-                SeedUsers(userManager);
                 AddRoles(dbContext);
+                //SeedUsers(userManager);
+            }
+        }
+        /// <summary>
+        /// seeds roles
+        /// </summary>
+        /// <param name="context"></param>
+        private static void AddRoles(UserDbContext context)
+        {
+            if (context.Roles.Any())
+            {
+                return;
+            }
+            foreach (var role in Roles)
+            {
+                context.Roles.Add(role);
+                context.SaveChanges();
             }
         }
         /// <summary>
@@ -37,18 +53,18 @@ namespace DinoCMS.Models
                         ("user1").Result == null)
             {
                 ApplicationUser user = new ApplicationUser();
-                user.UserName = "oSKNYo";
-                user.Email = "Percivaltanner@gmail.com";
-                user.FirstName = "Tanner";
-                user.LastName = "Percival";
+                user.UserName = "ADMIN";
+                user.Email = "ADMIN@gmail.com";
+                user.FirstName = "PrehistoricRealism";
+                user.LastName = "STAFF";
                 user.Birthday = new DateTime(2000, 3, 8);
 
                 IdentityResult result = userManager.CreateAsync
-                (user, "Percival1010$").Result;
+                (user, "PrStaff10$").Result;
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, "ADMIN").Wait();
+                    userManager.AddToRoleAsync(user, "Admin").Wait();
                 }
             }
 
@@ -71,22 +87,6 @@ namespace DinoCMS.Models
         //                                "Administrator").Wait();
         //        }
         //    }
-        }
-        /// <summary>
-        /// seeds roles
-        /// </summary>
-        /// <param name="context"></param>
-        private static void AddRoles(UserDbContext context)
-        {
-            if (context.Roles.Any())
-            {
-                return;
-            }
-            foreach (var role in Roles)
-            {
-                context.Roles.Add(role);
-                context.SaveChanges();
-            }
         }
     }
 }

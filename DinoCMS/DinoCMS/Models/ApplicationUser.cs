@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DinoCMS.Models
 {
+    /// <summary>
+    /// data tabless
+    /// </summary>
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
@@ -13,10 +16,12 @@ namespace DinoCMS.Models
         public DateTime Birthday { get; set; }
         public string PrStaff { get; set; } = "false";
     }
+    
 
-    public static class ApplicationRoles
+    public static class ApplicationRoles 
     {
         public const string Member = "Member";
+
         public const string Admin = "ADMIN";
 
 

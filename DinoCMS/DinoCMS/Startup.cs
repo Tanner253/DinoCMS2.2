@@ -22,7 +22,11 @@ namespace DinoCMS
     {
         public Startup(IConfiguration configuration)
         {
-         
+            // IConfigurationRoot Configuration = new ConfigurationBuilder()
+            //    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+
             var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
             Configuration = builder.Build();
@@ -47,11 +51,16 @@ namespace DinoCMS
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Admin", policy => policy.RequireRole("ADMIN"));
             });
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-              .AddEntityFrameworkStores<UserDbContext>()
-              .AddDefaultTokenProviders();
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<UserDbContext>();
+
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //  .AddEntityFrameworkStores<UserDbContext>()
+            //  .AddDefaultTokenProviders();
 
             services.AddDbContext<DinoDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -61,24 +70,26 @@ namespace DinoCMS
            options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault")));
 
             services.AddScoped<IDinoManager, DinoService>();
+            services.AddScoped<IBlogManager, BlogServices>();
+            services.AddScoped<IPostManager, PostServices>();
 
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, IServiceProvider service)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-            StartupDbInitializer.SeedData(service, userManager);
+           StartupDbInitializer.SeedData(service, userManager);
           
             app.UseMvc(routes =>
             {

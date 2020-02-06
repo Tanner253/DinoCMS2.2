@@ -10,18 +10,32 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
-<h1>Login</h1>
+<div class="text-center">
+    <h1>Login</h1>
 
-<form method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="FormElements">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div><div class="FormElements">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password" class="text-danger"></span>
+</div>
+
+    <div class="row ">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="form-group">
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="FormElements">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    </div>
+                    <div></div>
+                    <button class="btn-primary" type="submit">LOGIN!</button>
+            </form>
+        </div>
     </div>
-    <button type="submit">LOGIN!</button>
-</form>
+
+
