@@ -74,7 +74,7 @@ namespace DinoCMS.Controllers
                     await _userManager.AddClaimsAsync(user, claims);
 
 
-                    if (rvm.Email.ToLower() == "percivaltanner@gmail.com" || rvm.Email.ToLower() == "jesseshady@gmail.com" || rvm.Email.ToLower() == "jerryleo123455@gmail.com" || rvm.Email.ToLower() == "aandnranch@gmail.com" || rvm.Email.ToLower() == "dvhuus@gmail.com")
+                    if (rvm.Email.ToLower() == "percivaltanner@gmail.com" || rvm.Email.ToLower() == "jesseshady@gmail.com" || rvm.Email.ToLower() == "jerryleo123455@gmail.com" || rvm.Email.ToLower() == "aandnranch@gmail.com" || rvm.Email.ToLower() == "dvhuus@gmail.com" || rvm.Email.ToLower() == "rayfinkled@yahoo.com")
                     {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                     }else
