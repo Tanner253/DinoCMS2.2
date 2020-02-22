@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DinoCMS.Data;
+﻿using DinoCMS.Data;
 using DinoCMS.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DinoCMS.Controllers
 {
-    public class temprename : Controller
+    public class Blog : Controller
     {
         private DinoDbContext _context;
 
-        public temprename(DinoDbContext context)
+        public Blog(DinoDbContext context)
         {
             _context = context;
         }
@@ -43,7 +41,7 @@ namespace DinoCMS.Controllers
         // POST: Blog/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Title,BloggerName,Posts,User")] Blog blog)
+        public async Task<IActionResult> Create([Bind("ID,Title,BloggerName,Posts,User")] Models.Blog blog)
         {
             try
             {
@@ -78,7 +76,7 @@ namespace DinoCMS.Controllers
         // POST: Blog/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, [Bind("ID,Title,BloggerName,Posts,User")] Blog blog)
+        public async Task<ActionResult> Edit(int id, [Bind("ID,Title,BloggerName,Posts,User")] Models.Blog blog)
         {
 
             if (id != blog.Id) { return NotFound(); }

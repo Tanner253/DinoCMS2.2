@@ -25,7 +25,7 @@ namespace DinoCMS.Models
         public DateTime DateCreated { get; set; }
         public string Content { get; set; }
         public int BlogId { get; set; }
-       // public ICollection<Comment> Comments { get; set; }
+        // public ICollection<Comment> Comments { get; set; }
 
         //nav
         public Blog Blog { get; set; }

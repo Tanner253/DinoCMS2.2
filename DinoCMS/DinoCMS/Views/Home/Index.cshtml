@@ -14,7 +14,7 @@
     <div Id="jumbotronID" class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Prehistoric Realism</h1>
-       
+
             <p class="lead">
                 @if (SignInManager.IsSignedIn(User))
                 {
@@ -23,31 +23,34 @@
                     string fullname = identity.Claims.FirstOrDefault(c => c.Type == "FullName").Value;
                     @fullname;
                 }
-                        @if (!SignInManager.IsSignedIn(User))
-                        {
-                            <h2>You are not signed in!</h2>
+                @if (!SignInManager.IsSignedIn(User))
+                {
+                    <h2>You are not signed in!</h2>
 
-                            <a href="/Account/Register">Register</a>
-                        }
-                    </p>
+                    <a href="/Account/Register">Register</a>
+                }
+            </p>
         </div>
     </div>
     @*<h1 class="display-4">Welcome To Prehistoric Realism Official</h1>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <h2>You are signed in!</h2>
-        var identity = (System.Security.Claims.ClaimsIdentity)Context.User.Identity;
-        string fullname = identity.Claims.FirstOrDefault(c => c.Type == "FullName").Value;
-        @fullname;
-    }
-    @if (!SignInManager.IsSignedIn(User))
-    {
-        <h2>You are not signed in!</h2>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <h2>You are signed in!</h2>
+            var identity = (System.Security.Claims.ClaimsIdentity)Context.User.Identity;
+            string fullname = identity.Claims.FirstOrDefault(c => c.Type == "FullName").Value;
+            @fullname;
+        }
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <h2>You are not signed in!</h2>
 
-        <a href="/Account/Register">Register</a>
-    }
-    <p>Website is a work in progress :D</p>*@
+            <a href="/Account/Register">Register</a>
+        }
+        <p>Website is a work in progress :D</p>*@
+    <div>
+    <iframe src="https://unbelievaboat.com/leaderboard/660551151061565448/widget" height="250"></iframe>
 
+    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
