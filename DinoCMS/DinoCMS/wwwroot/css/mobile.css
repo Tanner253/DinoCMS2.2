@@ -8,6 +8,9 @@
         padding: 0px;
         width: 100%;
     }
+    div, iframe{
+        width: 100%;
+    }
     header, main, footer{
         /* border: solid red 2px; */
         margin: 0px;
