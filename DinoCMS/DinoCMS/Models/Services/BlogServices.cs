@@ -104,7 +104,7 @@ namespace DinoCMS.Models.Services
             return _context.Post.Any(m => m.Id == id);
         }
 
-        public async Task UpdatePost(int id, [Bind("Id,Title,DateCreated,Content,BlogId,Blog")]Post post)
+        public async Task UpdatePost(int id, [Bind("Id,Title,DateCreated,Content,BlogId,BlogsController")]Post post)
         {
             _context.Update(post);
             await _context.SaveChangesAsync();

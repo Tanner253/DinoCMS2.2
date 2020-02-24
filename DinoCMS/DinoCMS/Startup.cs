@@ -63,11 +63,11 @@ namespace DinoCMS
             //  .AddDefaultTokenProviders();
 
             services.AddDbContext<DinoDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddDbContext<UserDbContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("UserDataConnection")));
+           options.UseSqlServer(Configuration.GetConnectionString("IdentityDefault")));
 
             services.AddScoped<IDinoManager, DinoService>();
             services.AddScoped<IBlogManager, BlogServices>();

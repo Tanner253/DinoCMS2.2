@@ -4,24 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DinoCMS.Migrations
 {
-    public partial class rescaffold : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "PackLimits",
-                table: "Dinosaur",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Image",
-                table: "Dinosaur",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldNullable: true);
-
             migrationBuilder.CreateTable(
                 name: "ApplicationUser",
                 columns: table => new
@@ -49,6 +35,26 @@ namespace DinoCMS.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ApplicationUser", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Dinosaur",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false),
+                    Diet = table.Column<int>(nullable: false),
+                    NeedToKnow = table.Column<string>(nullable: false),
+                    Behavior = table.Column<string>(nullable: false),
+                    SocialInteraction = table.Column<string>(nullable: false),
+                    PackLimits = table.Column<string>(nullable: false),
+                    Image = table.Column<string>(nullable: false),
+                    Additionalinfo = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dinosaur", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,6 +114,9 @@ namespace DinoCMS.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Dinosaur");
+
+            migrationBuilder.DropTable(
                 name: "Post");
 
             migrationBuilder.DropTable(
@@ -115,18 +124,6 @@ namespace DinoCMS.Migrations
 
             migrationBuilder.DropTable(
                 name: "ApplicationUser");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "PackLimits",
-                table: "Dinosaur",
-                nullable: true,
-                oldClrType: typeof(string));
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Image",
-                table: "Dinosaur",
-                nullable: true,
-                oldClrType: typeof(string));
         }
     }
 }
