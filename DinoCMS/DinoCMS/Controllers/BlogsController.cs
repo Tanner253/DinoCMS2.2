@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DinoCMS.Controllers
 {
-    public class Blog : Controller
+    public class BlogsController : Controller
     {
         private DinoDbContext _context;
 
-        public Blog(DinoDbContext context)
+        public BlogsController(DinoDbContext context)
         {
             _context = context;
         }
@@ -31,6 +31,25 @@ namespace DinoCMS.Controllers
             if (blogs == null) { return NotFound(); }
             return View(blogs);
         }
+
+
+        //THIS FORSURE DOESN'T WORK || LEGACY CODE vvv
+        /// <summary>
+        /// I have no idea if his is going to work the diea is that icrewate an enpoint that takes in an id, and selects all the posts that are liked to that id, (the blog id)
+        /// </summary>
+        /// <param name="id">The blog id</param>
+        /// <returns>a list of posts that are related to the blog id</returns>
+        //public async Task<IActionResult> BlogPosts(int? id)
+        //{
+        //    if(id == null) { return NotFound(); }
+        //    var blogPosts = await _context.Post.ToListAsync();
+        //    if(blogPosts == null) { return NotFound(); }
+        //    return View(blogPosts);
+        //}
+
+
+
+
 
         // GET: Blog/Create
         public IActionResult Create()

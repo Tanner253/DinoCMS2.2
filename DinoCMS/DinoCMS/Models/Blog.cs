@@ -22,7 +22,7 @@ namespace DinoCMS.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { get; set; } = DateTime.Now;
         public string Content { get; set; }
         public int BlogId { get; set; }
         // public ICollection<Comment> Comments { get; set; }

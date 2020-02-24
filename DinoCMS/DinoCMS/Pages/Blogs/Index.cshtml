@@ -16,6 +16,7 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].Title)
+             
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].BloggerName)
@@ -27,7 +28,8 @@
 @foreach (var item in Model.Blog) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                <a asp-page="./../Posts/Index">
+                    @Html.DisplayFor(modelItem => item.Title) </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BloggerName)

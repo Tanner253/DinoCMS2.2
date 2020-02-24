@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DinoCMS.Migrations
 {
     [DbContext(typeof(DinoDbContext))]
-    [Migration("20200222185448_blogupdate")]
-    partial class blogupdate
+    [Migration("20200224192319_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
