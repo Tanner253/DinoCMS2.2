@@ -1,6 +1,7 @@
 ﻿using NuGet.Packaging.Signing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace DinoCMS.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        [Display(Name = "Created By")]
         public string BloggerName { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
 
@@ -22,12 +24,15 @@ namespace DinoCMS.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime DateCreated { get; set; } = DateTime.Now;
+        [Display(Name = "Created On")]
+        public DateTime CreatedOn = DateTime.Now;
         public string Content { get; set; }
-        public int BlogId { get; set; }
+
+        
         // public ICollection<Comment> Comments { get; set; }
 
-        //nav
+        //nav ???
+        public int BlogId { get; set; } 
         public Blog Blog { get; set; }
        
     }
