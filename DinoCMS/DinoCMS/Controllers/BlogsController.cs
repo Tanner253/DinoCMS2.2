@@ -1,6 +1,7 @@
 ﻿using DinoCMS.Data;
 using DinoCMS.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -10,11 +11,13 @@ namespace DinoCMS.Controllers
 {
     public class BlogsController : Controller
     {
+        private UserManager<ApplicationUser> _userManager;
         private DinoDbContext _context;
 
-        public BlogsController(DinoDbContext context)
+        public BlogsController(DinoDbContext context, UserManager<ApplicationUser> usermanager)
         {
             _context = context;
+            _userManager = usermanager;
         }
         // GET: Blog
         public ViewResult Index()
@@ -66,6 +69,7 @@ namespace DinoCMS.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    blog.BloggerName = User.Identity.Name;
                     _context.Add(blog);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -104,6 +108,7 @@ namespace DinoCMS.Controllers
             {
                 try
                 {
+                    blog.BloggerName = User.Identity.Name;
                     _context.Update(blog);
                     await _context.SaveChangesAsync();
                 }
