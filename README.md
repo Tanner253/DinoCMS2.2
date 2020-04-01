@@ -4,7 +4,7 @@
 ---------------------------------
 ## We are deployed on Azure!
 https://prehistoricrealism.azurewebsites.net/
-cant fund anmore had to take down
+cant fund anmore had to take down temporarily
 
 ---------------------------------
 ## Web Application
