@@ -9,7 +9,7 @@ cant fund anmore had to take down temporarily
 ---------------------------------
 ## Web Application
 Stores data for each dino that is available in the game - making it available to the players.
- Netcore 3.0 and identity 3.0 is not playing nice.. going to  rehaul project and migrate to ASP.NET 2.2
+
 ---------------------------------
 
 ## Tools Used
