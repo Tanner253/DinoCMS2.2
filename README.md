@@ -8,7 +8,7 @@ cant fund anymore had to take down temporarily :( will be back up when the game 
 
 ---------------------------------
 ## Web Application
-Stores data for each dino that is available in the game - making it available to the players.
+The game has an X amount of dinosaurs some herbivores and some carnivores, this website is a CMS for the profiles for each of these dinosaurs. these profiles define how a dinosaur in game should play or "bahave". You can register and login, allowing admins to see the admin panel and edit what the users see in the catalog.
 
 ---------------------------------
 
