@@ -4,7 +4,7 @@
 ---------------------------------
 ## We are deployed on Azure!
 https://prehistoricrealism.azurewebsites.net/
-cant fund anymore had to take down temporarily :( will be back up when the game gets updated **COMING SOON**
+cant fund anymore had to take down temporarily :( will be back up when the game gets updated **COMING SOON** -> game is updating 6/14 -> will relaunch site after alpha launch
 
 ---------------------------------
 ## Web Application
