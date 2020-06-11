@@ -84,6 +84,7 @@ dotnet run
 1.1: CRUD Works
 1.2: Crud cleaned up
 1.3: Working on Identity and authorization / Security
+1.4: Looking at blazor rendition or continue with this current site.
 
 ------------------------------
 
